@@ -33,6 +33,7 @@
       text-align: center;
       margin-top: 35px;
     }
+
     .logo img {
       width: 380px;
       max-width: 85%;
@@ -125,6 +126,19 @@
       font-weight: 600;
     }
 
+    /* DISABLED SERVICE CARD */
+    .service-card.disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+
+    .service-card.disabled:hover {
+      transform: none;
+      box-shadow: none;
+    }
+
     /* LOGOUT BUTTON */
     #logoutBtn {
       background-color: #0b56b3;
@@ -139,6 +153,7 @@
       margin-top: 25px;
       transition: background 0.3s;
     }
+
     #logoutBtn:hover {
       background-color: #094a9b;
     }
@@ -179,6 +194,21 @@
       <div class="service-card" onclick="window.open('https://forms.gle/Hy8a9PHGkweNnxre7', '_blank')">
         <img src="registernewborn.png" alt="Register a New Born">
         <h3>Register a New Born</h3>
+      </div>
+
+      <div class="service-card" onclick="window.open('https://forms.gle/Hy8a9PHGkweNnxre7', '_blank')">
+        <img src="transfer.png" alt="Transfer of Vehicle Ownership">
+        <h3>Transfer of Vehicle Ownership</h3>
+      </div>
+
+      <div class="service-card" onclick="window.open('https://forms.gle/Hy8a9PHGkweNnxre7', '_blank')">
+        <img src="passport.png" alt="Apply for a new Passport">
+        <h3>Apply for a new Passport</h3>
+      </div>
+
+      <div class="service-card disabled">
+        <img src="vote.png" alt="Vote Now! Unavailable right now!">
+        <h3>Vote Now! <br>Unavailable right now!</h3>
       </div>
     </div>
 
@@ -233,14 +263,17 @@
 
         const data = userSnap.data();
         profileDiv.innerHTML = `
-          <div class="field"><strong>Username:</strong> ${displayOrDefault(data.username || '(none)')}</div>
+          <div class="field"><strong>Username:</strong> ${displayOrDefault(data.username)}</div>
           <div class="field"><strong>Email:</strong> ${displayOrDefault(data.email || user.email)}</div>
           <div class="field"><strong>Civil ID:</strong> ${displayOrDefault(data.civilId)}</div>
           <div class="field"><strong>Legal Name:</strong> ${displayOrDefault(data.legalName)}</div>
+          <div class="field"><strong>Sex:</strong> ${displayOrDefault(data.sex)}</div>
           <div class="field"><strong>Date of Birth:</strong> ${displayOrDefault(data.dob)}</div>
           <div class="field"><strong>Population Number:</strong> ${displayOrDefault(data.populationNumber)}</div>
+          <div class="field"><strong>Digital ID:</strong> ${displayOrDefault(data.digitalid)}</div>
+          <div class="field"><strong>Obtained Passport:</strong> ${displayOrDefault(data.obtainedpassport)}</div>
           <div class="field"><strong>Status:</strong> ${displayOrDefault(data.status)}</div>
-          <div class="field"><strong>Passport No.:</strong> ${displayOrDefault(data.passportnumber)}</div>
+          <div class="field"><strong>Passport Number:</strong> ${displayOrDefault(data.passportnumber)}</div>
         `;
 
         welcomeHeader.textContent = `Peace be upon you, ${data.username || 'Citizen'} 🤝`;
