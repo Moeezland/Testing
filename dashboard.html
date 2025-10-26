@@ -242,7 +242,8 @@
     const welcomeHeader = document.getElementById('welcomeHeader');
 
     function displayOrDefault(val) {
-      if (val === undefined || val === null || String(val).trim() === "") return '<span class="muted">(not provided)</span>';
+      if (val === undefined || val === null || String(val).trim() === "")
+        return '<span class="muted">(not provided)</span>';
       return String(val);
     }
 
@@ -272,6 +273,7 @@
           <div class="field"><strong>Population Number:</strong> ${displayOrDefault(data.populationNumber)}</div>
           <div class="field"><strong>Digital ID:</strong> ${displayOrDefault(data.digitalid)}</div>
           <div class="field"><strong>Obtained Passport:</strong> ${displayOrDefault(data.obtainedpassport)}</div>
+          <div class="field"><strong>Verified Vehicle Driver?:</strong> ${displayOrDefault(data.verifiedDriver)}</div>
           <div class="field"><strong>Status:</strong> ${displayOrDefault(data.status)}</div>
           <div class="field"><strong>Passport Number:</strong> ${displayOrDefault(data.passportnumber)}</div>
         `;
